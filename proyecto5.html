@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        background-color: rgb(23, 41, 56);
+        height: 100vh;
+        color: white;
+
+    }
+
+    #contenedor {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        flex-direction: row;
+        font-size: 80px;
+
+    }
+
+    .caja {
+        margin: 30px;
+    }
+</style>
+
+
+<body>
+    <div id="contenedor">
+        <div id="cronometro">00:00:00</div>
+        <div id="play-pausa" class="caja"><i id="play" class="bi bi-play-circle-fill"></i></div>
+        <div id="btnReiniciar" class="caja"><i class="bi bi-x-circle-fill"></i></div>
+
+    </div>
+
+</body>
+
+<script>
+    //<i class="bi bi-pause-circle-fill"></i>
+    let playPausa = document.getElementById("play-pausa")
+    let cronometro = document.getElementById("cronometro")
+    let btnReiniciar = document.getElementById("btnReiniciar")
+
+    let intervaloTiempo;
+    let estadoCronometro = "pauseado";
+
+    let [horas, minutos, segundos] = [0, 0, 0]
+
+
+    function controlarCronometro() {
+        segundos++
+        if (segundos / 60 === 1) {
+            segundos = 0;
+            minutos++;
+            if (minutos / 60 === 1) {
+                minutos = 0;
+                horas++;
+            }
+        }
+        let segundosFormato = asignarFormato(segundos);
+        let minutosFormato = asignarFormato(minutos);
+        let horasFormato = asignarFormato(horas);
+        console.log(segundos)
+        cronometro.innerText = `${horasFormato}:${minutosFormato}:${segundosFormato} `
+
+
+    }
+    function asignarFormato(unidadT) {
+        return unidadT < 10 ? "0" + unidadT : unidadT
+
+    }
+    playPausa.addEventListener("click", function () {
+        if (estadoCronometro === "pauseado") {
+            intervaloTiempo = window.setInterval(controlarCronometro, 1000)
+            playPausa.innerHTML = "<i class='bi bi-pause-circle-fill'></i>"
+            estadoCronometro = "listo"
+
+
+        }
+        else {
+            window.clearInterval(intervaloTiempo)
+            playPausa.innerHTML = "<i class='bi bi-play-circle-fill'></i>"
+            estadoCronometro = "pauseado"
+
+
+        }
+
+    })
+    btnReiniciar.addEventListener("click", function () {
+
+        segundos = 0
+        minutos = 0
+        horas = 0
+
+        cronometro.innerText = `0${horas}:0${minutos}:0${segundos} `
+
+    })
+</script>
+
+</html>

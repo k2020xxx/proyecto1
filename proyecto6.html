@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: rgb(18, 18, 99);
+    }
+
+    #contenedor {
+        background-color: white;
+        display: flex;
+        align-content: center;
+        justify-content: center;
+        flex-direction: column;
+        padding: 30px;
+        align-items: center;
+        border: 5px solid black;
+    }
+
+    #btnRegistrar {
+        background-color: #c4bc30;
+        width: 130px;
+        border-radius: 13px;
+        margin: 15px;
+        font-size: 16px;
+    }
+
+    .cajasNuevas {
+        font-size: 15px;
+        display: flex;
+        align-content: center;
+        align-items: center;
+        margin: 10px;
+        justify-content: flex-end;
+        border: 1px solid black;
+        border-radius: 10px;
+        padding: 4px;
+
+    }
+
+    .cajasNuevas p,
+    i {
+        margin: 0px 5px;
+    }
+
+    .tareaHecha {
+        background-color: black;
+        color: white;
+        text-decoration: line-through;
+
+
+    }
+</style>
+
+<body>
+    <div id="contenedor">
+        <h2>Mis Tareas</h2>
+        <input id="nueva-tarea" type="text" placeholder="Ingrese Tarea">
+        <button type="submit" id="btnRegistrar">Registrar Tarea</button>
+        <div id="contenido-tareas">
+
+        </div>
+    </div>
+</body>
+<script>
+    const inputTarea = document.getElementById("nueva-tarea");
+    const btnRegistrar = document.getElementById("btnRegistrar");
+    const contenidoTareas = document.getElementById("contenido-tareas");
+
+
+    btnRegistrar.addEventListener("click", crearTarea)
+    function crearTarea() {
+        let estadoClase = false
+        if (inputTarea.value) {
+            let cajaTarea = document.createElement("div")
+            cajaTarea.classList.add("cajasNuevas")
+
+            let textoTarea = document.createElement("p")
+
+            //icono del check
+            let iconoCheck = document.createElement("i")
+            iconoCheck.classList.add("bi", "bi-pencil-square", "btn-check")
+
+
+            iconoCheck.addEventListener("click", function () {
+                if (estadoClase) {
+                    cajaTarea.classList.remove("tareaHecha")
+                    estadoClase = false
+                }
+                else {
+                    cajaTarea.classList.add("tareaHecha")
+                    alert("Tarea Hecha")
+                    estadoClase = true
+                }
+                //cajaTarea.classList.toggle("tareaHecha")
+            })
+
+            //icono de eliminar
+            let iconoEliminar = document.createElement("i")
+            iconoEliminar.classList.add("bi", "bi-trash3-fill", "btn-eliminar")
+
+            iconoEliminar.addEventListener("click", function () {
+                cajaTarea.remove()
+            })
+
+
+
+            textoTarea.innerText = inputTarea.value
+            contenidoTareas.append(cajaTarea)
+            cajaTarea.append(textoTarea)
+            cajaTarea.append(iconoCheck)
+            cajaTarea.append(iconoEliminar)
+            inputTarea.value = ""
+
+
+        }
+        else {
+            alert("No ha ingresado ningun tarea")
+        }
+    }
+
+
+    let nombre=0
+    if(!nombre){
+        console.log("hay valor")
+    }else{
+        console.log("no hay valor")
+    }
+
+
+</script>
+
+</html>
+https://www.youtube.com/watch?v=xXLKiTlErJA
+https://www.youtube.com/watch?v=lhfNo1rCuCg
+https://www.youtube.com/watch?v=qXOINUX5Po8

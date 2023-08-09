@@ -1,0 +1,52 @@
+<script>
+    function numeros() {
+        let pares = []
+        let impares = []
+        for (let i = 1; i <= 100; i++) {
+            if (i % 2 == 0) {
+                pares.push(i)
+
+
+            }
+            else {
+                impares.push(i)
+            }
+
+        }
+        return pares + "\n" + "\n" + impares
+
+
+    }
+    //console.log(numeros())
+    function tresYcinco() {
+        let multiploTres = []
+        let multiploCinco = []
+        let multiploAmbos = []
+        let ambos = ""
+
+        for (let i = 1; i <= 100; i++) {
+            if (i % 3 != 0) {
+                multiploTres.push(`${i} + Fizz`)
+            }
+            if (i % 5 === 0) {
+                multiploCinco.push(`${i} + Buzz`)
+            }
+            if (i % 3 == 0 || i % 5 == 0) {
+                multiploAmbos.push(`${i} + FizzBuzz`)
+            }
+        }
+        return multiploTres
+    }
+    // console.log(tresYcinco())
+
+    function factorial(e) {
+        if (e === 0 || e === 1) {
+            return 1
+        }
+        else {
+            return (e * factorial(e - 1))
+        }
+    }
+    console.log(factorial(6))
+
+</script>

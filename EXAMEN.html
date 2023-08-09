@@ -1,0 +1,47 @@
+<script>
+
+    let edades = [20, 50, 20, 30, 30];
+    function eliminarElementos(array) {
+        let nuevoArreglo = []
+        let indiceCero = array[0]
+        for (let i = 0; i < array.length; i++) {
+            // console.log(array[i])
+            if (array[i].includes(array[i])) {
+                nuevoArreglo.push(array[i])
+            }
+        }
+        return nuevoArreglo
+    }
+    console.log(eliminarElementos(edades))
+
+
+
+
+    let matriz = [
+        ["Estoy ", " aprendiendo "],
+        [" a prgramar  ", " python "]
+    ]
+
+    function crearOracion(matriz) {
+        let palabra = ""
+        let result
+        for (let i = 0; i < matriz.length; i++) {
+            for (let j = 0; j < matriz[i].length; j++) {
+                palabra += matriz[i][j]
+                result = invertirPalabra(palabra)
+            }
+        }
+        return result
+
+    }
+    // console.log(crearOracion(matriz))
+
+    function invertirPalabra(palabra) {
+        let newPalabra = ""
+        for (let i = palabra.length - 1; i >= 0; i--) {
+            newPalabra += palabra[i]
+        }
+        return newPalabra
+    }
+
+</script>

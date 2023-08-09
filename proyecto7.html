@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+        box-sizing: 0;
+    }
+
+    body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .seccion {
+        width: 1000px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+    }
+
+    .caja {
+        background-color: green;
+        width: 350px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 350px;
+        padding: 10px;
+        position: relative;
+        /* z-index: 1; */
+        /* overflow: hidden;*/
+    }
+
+    .caja img {
+        width: 100%;
+        height: 350px;
+    }
+
+    img:hover {
+        background-color: transparent;
+        cursor: pointer;
+    }
+
+    .contenido {
+        width: 250px;
+        height: 250px;
+        position: absolute;
+        background-color: #457aa7d1;
+        color: #ffffff;
+        top: 15px;
+        left: 250px;
+        z-index: 2;
+        padding: 10px;
+        /* overflow: hidden; */
+        overflow-y: scroll;
+        font-size: 20px;
+        border-radius: 35px;
+    }
+</style>
+
+<body>
+
+    <section class="seccion">
+        <div class="caja"> <img src="img/auto1.jpg" alt=""></div>
+        <div class="caja"> <img src="img/auto2.jpg" alt=""></div>
+    </section>
+
+    <section class="seccion">
+        <div class="caja"> <img src="img/auto3.jpg" alt=""></div>
+        <div class="caja"> <img src="img/shampoo.jpg" alt=""></div>
+    </section>
+
+</body>
+<script>
+ 
+    let cajas = document.querySelectorAll(".caja");
+
+    for (let i = 0; i < cajas.length; i++) {
+        cajas[i].addEventListener("mouseenter", function () {
+            let nuevaCaja = document.createElement("div");
+
+            let titulo = document.createElement("h1");
+            nuevaCaja.appendChild(titulo)
+
+            let contenido = document.createElement("p");
+            nuevaCaja.appendChild(contenido)
+
+            nuevaCaja.setAttribute("id", i);
+            nuevaCaja.setAttribute("class", "contenido");
+            let idCaja = Number(nuevaCaja.getAttribute("id"));
+            //console.log(idCaja);
+
+            switch (idCaja) {
+                case 0:
+                    titulo.innerText = "Carro 1"
+                    contenido.innerHTML = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum quis est ante. Morbi bibendum ligula ac lorem ultrices, nec sollicitudin quam commodo. Donec et aliquet tellus, eget tempor sem. Fusce eget pulvinar turpis. Proin rhoncus faucibus eros vitae consequat. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nullam hendrerit velit massa, non dignissim massa aliquam ac. Pellentesque dignissim odio a metus volutpat, sit amet rhoncus urna ullamcorper. Maecenas vitae eros nec massa pellentesque volutpat. Phasellus nisl velit, porttitor nec scelerisque non, vestibulum nec quam. Etiam vel tellus justo. Morbi at magna sed arcu tristique blandit. Morbi quam urna, vestibulum in aliquam vitae, venenatis eget ligula. Curabitur sagittis, ante eget fringilla porttitor, magna ipsum faucibus magna, eget convallis dolor leo sit amet mauris. Praesent gravida vitae mi non aliquet. Donec lorem enim, blandit a mi vel, molestie laoreet mi.";
+                    break;
+                case 1:
+                    titulo.innerText = "Carro 2"
+
+                    contenido.innerHTML = "Donec auctor dictum lorem nec congue. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In scelerisque lectus vitae lectus pharetra tincidunt. Donec pharetra sed est et porttitor. Mauris ornare accumsan ex. Nunc consectetur tincidunt neque a varius. Nam tempus tortor vel pretium porta. Fusce mattis tellus id mauris faucibus consequat. Nullam egestas quam diam, in efficitur nisl faucibus sit amet. Suspendisse iaculis diam et urna scelerisque consequat. Pellentesque a tincidunt arcu, ac posuere ex. Vivamus dignissim sodales est quis molestie. Phasellus eget consectetur velit, eu vestibulum mauris.";
+                    break;
+                case 2:
+                    titulo.innerText = "Carro 3"
+
+                    contenido.innerHTML = "Quisque imperdiet eget risus eu lacinia. Duis a porta purus, varius vulputate nulla. Proin consequat libero eget urna scelerisque suscipit. Duis ullamcorper urna a elit sagittis finibus. Ut ultricies turpis id magna pulvinar ullamcorper. Duis sed tristique nibh. Maecenas purus ex, condimentum ac enim eu, semper volutpat lectus. Duis risus massa, vestibulum vitae blandit eget, iaculis vitae felis. Morbi magna elit, lobortis sit amet velit at, tristique sodales augue.";
+                    break;
+                case 3:
+                    titulo.innerText = "Shampoo"
+
+                    contenido.innerHTML = "Morbi hendrerit dui quis varius gravida. Aliquam luctus lobortis turpis, interdum fermentum mi rhoncus ut. Pellentesque dui mauris, egestas a sodales eu, porta in diam. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Proin non hendrerit ante, sed interdum felis. Vivamus lectus erat, porttitor eu egestas sed, ullamcorper sed purus. Aliquam ornare urna vitae lectus ullamcorper, sit amet porttitor risus bibendum. Phasellus congue condimentum ultricies. Sed suscipit viverra pulvinar. Etiam nec luctus velit.";
+                    break;
+                default:
+                    alert("nada");
+            }
+            cajas[i].appendChild(nuevaCaja);
+
+        });
+
+        cajas[i].addEventListener("mouseleave", function () {
+            let nuevaCaja = document.querySelectorAll(".contenido")
+            nuevaCaja.forEach(caja => {
+                caja.remove()
+            });
+        })
+    }
+//-------------------------------------------------------
+    let arreglo = [90, 1, 2, 2, 3, 100, 3, 4, 5, -10]
+    let ar1 = [1, 2, 3, 4, 5]
+    let ar2 = [1, 3, 5, 6, 7, 8, 9]
+    let promedio = [20, 15, 15, 10, 20, 20]
+
+    function arreglox(array, valor) {
+        let result = "no esta el valor de " + valor
+        for (let i = 0; i < array.length; i++) {
+            if (array[i] == valor) {
+                result = "si esta " + valor
+                break;
+            }
+        }
+        return result
+    }
+    //  console.log(arreglox(arreglo, 90))
+
+    function eliminarDuplex(array) {
+        let nuevoArray = []
+        for (let i = 0; i < array.length; i++) {
+            if (!nuevoArray.includes(array[i])) {
+                nuevoArray.push(array[i])
+            }
+
+
+
+        }
+        return nuevoArray
+    }
+    //  console.log(eliminarDuplex(arreglo))
+
+    function maxYmin(array) {
+        let mayor = array[0]
+        let menor = array[0]
+        for (let i = 0; i < array.length; i++) {
+            if (array[i] > mayor) {
+                mayor = array[i]
+            }
+            if (array[i] < menor) {
+                menor = array[i]
+            }
+
+        }
+        return ` el mayor es ${mayor}  \n menor es  ${menor}`
+
+    }
+    //console.log(maxYmin(arreglo))
+
+    function unirArray(array1, array2) {
+        let nuevoArray = array1.concat(array2)
+        let result = eliminarDuplex(nuevoArray)
+        return result
+    }
+    //console.log(unirArray(ar1, ar2))
+
+    function promedioArray(array) {
+        let result = 0
+        console.log("x")
+        for (let i = 0; i < array.length; i++) {
+            result += array[i] / array.length
+
+
+        }
+        let deci = "no aprobaste " + result.toFixed(0)
+
+        Math.ceil(result)
+        if (result > 18) {
+            deci = "aprovaste " + result.toFixed(0)
+        }
+        return deci
+    }
+    //console.log(promedioArray(promedio))
+
+
+/*   let fruta = prompt("Ingrese su fruta").toLowerCase()
+    let frutax=""
+    
+    switch (fruta.toLowerCase()) {
+        case "fresa":
+            frutax = `El kilo de ${fruta} cuesta S/5.20`
+
+            break;
+
+        case "pera":
+            frutax = `El kilo de ${fruta} cuesta S/8.20`
+
+            break;
+
+        case "banana":
+            frutax = `El kilo de ${fruta} cuesta S/2.20`
+
+            break;
+
+        case "mango":
+            frutax = `El kilo de ${fruta} cuesta S/3.20`
+
+            break;
+
+        default:
+            frutax = `Esa fruta no tenemos`
+
+            break;
+    }
+    console.log(frutax)
+*/
+</script>
+
+</html>

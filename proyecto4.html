@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        height: 100vh;
+    }
+
+    #contenedor {
+        width: 500px;
+        height: 700px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 2px solid black;
+        border-radius: 15px;
+
+    }
+
+    #contenido {
+        width: 450px;
+        height: 500px;
+        display: flex;
+        border: 2px solid black;
+        flex-direction: column;
+        align-content: center;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        font-size: 20px;
+        align-items: center;
+    }
+
+    #btn-cita {
+        font-size: 25px;
+        background-color: black;
+        border-radius: 15px;
+        padding: 10px;
+        color: white;
+        cursor: pointer;
+
+    }
+</style>
+
+<body>
+    <div id="contenedor">
+        <div id="contenido">
+            <h1>Relampagos</h1>
+            <h1 id="autor-cita"></h1>
+            <p id="texto-cita"></p>
+            <button id="btn-cita">Siguiente Cita</button>
+
+        </div>
+
+    </div>
+
+</body>
+<script>
+    let citas = [
+        {
+            "autor": "Gustavo Adolfo",
+            "relato": "¿Qué es poesía?, dices mientras clavasen mi pupila tu pupila azul.¿Qué es poesía? ¿Y tú me lo preguntas?Poesía... eres tú "
+        },
+        {
+            "autor": "Emily Dickinson",
+            "relato": " El Amor - es anterior a la Vida -posterior - a la Muerte -inicial de la Creación, y de la tierra el Exponente - "
+        },
+        {
+            "autor": "Jorge Luis Borges",
+            "relato": "Yo no hablo de venganzas ni de perdones; el olvido es la única venganza y el único perdón."
+        }
+    ]
+    let autorCita = document.getElementById("autor-cita");
+    let textoCita = document.getElementById("texto-cita");
+    let btnCita = document.getElementById("btn-cita");
+
+
+    function citaAleatorioRandom(min, max) {
+        return Math.floor(Math.random() * (max - min) + min)
+
+    }
+    //let citasJSAleatorio = citaAleatorioRandom(0, citas.length)
+
+    function citaAleatorio() {
+        let citaAle = citaAleatorioRandom(0, citas.length)
+        textoCita.innerText = `${citas[citaAle].relato}`
+        autorCita.innerText = `${citas[citaAle].autor}`
+    }
+    citaAleatorio()
+    btnCita.addEventListener("click",citaAleatorio)
+
+
+
+
+</script>
+
+</html>

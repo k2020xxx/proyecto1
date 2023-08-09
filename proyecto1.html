@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        border: 0;
+        margin: 5% auto;
+    }
+
+    #contenedor {
+
+        width: 500px;
+        height: 300px;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        border: 3px solid black;
+        box-shadow: 0px 0px 17px -3px #ff0000,0px 10px 15px -3px white;
+
+
+    }
+
+    #btn-color {
+        border-radius: 48%;
+        cursor: pointer;
+        color: #01206b;
+        font-size: 27px;
+        width: 250px;
+        height: 80px;
+        background-color: #5db3c5;
+    }
+</style>
+
+<body>
+
+    <div id="contenedor">
+        <h1 id="codigo-color">#FF0000</h1>
+        <button id="btn-color">Fondo Color</button>
+
+    </div>
+
+</body>
+<script>
+    let contenedor = document.getElementById("contenedor")
+    let codigoColor = document.getElementById("codigo-color")
+    let btnColor = document.getElementById("btn-color")
+    document.body.style.backgroundColor = "#ff0000"
+
+
+    function CambioColores() {
+        let colores = "0123456789ABCDEF"
+        let extra = "#"
+        for (let i = 0; i < 6; i++) {
+            let colorAleatorio = Math.floor(Math.random() * 16)
+            extra += colores[colorAleatorio]
+
+        }
+        return extra
+    }
+
+    btnColor.addEventListener("click", function () {
+        let aleatorio = CambioColores();
+        codigoColor.innerText = aleatorio;
+        document.body.style.backgroundColor = aleatorio
+
+    })
+</script>
+
+</html>

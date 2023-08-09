@@ -1,0 +1,286 @@
+:root {
+    --borderRadio: 20px;
+    --marginBotton:50px;
+    --colorTransparente:rgba(0, 0, 0, 0.175);
+}
+
+#menu {
+    background-color: #000;
+    color: rgb(195, 22, 22);
+    display: flex;
+    width: 100%;
+    margin-bottom: 50px;
+    justify-content: flex-end;
+    align-items: center;
+    /* align-content: center; */
+    flex-direction: row;
+
+}
+
+#menu ul {
+    background-color: blue;
+    font-size: 20px;
+}
+
+#menu ul li {
+    float: left;
+    list-style: none;
+    margin: 0px 15px;
+    color: white;
+}
+#menu ul li  a {
+text-decoration: none;
+color: white;
+}
+
+#header {
+    background-color: yellow;
+    min-height: 400px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: nowrap;
+    justify-content: center;
+}
+
+.caja-header {
+    width: 50%;
+    background-color: green;
+    margin: 0px;
+    height: 350px;
+    padding: 10px;
+    border: 5px solid black;
+}
+
+@media(max-width:500px) {
+    #cajaUnoHeader {
+        display: none;
+    }
+
+    .caja-header {
+        width: 100%;
+        max-height: 300px;
+    }
+}
+
+
+.caja-header img {
+    width: 100%;
+    height: 100%;
+}
+
+#main-contenedor {
+    width: 100%;
+    margin-top: 30px;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    /* flex-wrap: nowrap; */
+    flex-direction: column;
+}
+
+#datos-personales {
+    width: 100%;
+    background-color: aqua;
+    display: flex;
+    justify-content: center;
+    /* align-content: center; */
+    align-items: center;
+    flex-direction: row;
+}
+
+@media(max-width:450px) {
+    #datos-personales {
+        flex-direction: column;
+
+    }
+
+}
+
+.sobre-mi {
+    background-color: tomato;
+    max-width: 250px;
+    text-align: center;
+    height: auto;
+    padding: 10px;
+}
+
+.sobre-mi img {
+    width: 100%;
+    height: auto;
+}
+
+.pie-h1 {
+    margin: 40px 0px;
+    text-align: center;
+}
+
+#proyectos {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.conteneddor-proyectos {
+    width: 250px;
+    flex: 1 0 calc(50% - 10px);
+    /* Distribuir en 2 columnas con espacio entre ellas */
+    border: 1px solid #000;
+    box-sizing: border-box;
+    position: relative;
+    margin: 5px;
+    height: 350px;
+    cursor: pointer;
+}
+
+.conteneddor-proyectos img {
+    width: 100%;
+    height: 100%;
+}
+
+@media (max-width: 768px) {
+    .conteneddor-proyectos {
+        flex: 1 0 calc(100% - 10px);
+        /* Ocupar el ancho completo en una sola columna */
+    }
+}
+
+.descripcion {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: #00000092;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    color: white;
+    font-size: 18px;
+    padding: 5px;
+    text-align: center;
+    display: flex;
+    flex-wrap: nowrap;
+    /* align-content: center; */
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+}
+
+#contenedor-iconos {
+    display: flex;
+    width: 100%;
+}
+
+.iconos {
+    display: flex;
+    flex-direction: row;
+    width: 50%;
+    min-height: 80px;
+    padding: 15px;
+    flex-wrap: nowrap;
+    /* align-content: center; */
+    justify-content: center;
+    align-items: center;
+
+}
+
+.iconos i {
+    font-size: 35px;
+    color: white;
+}
+
+.iconos i:hover {}
+
+.col {
+    text-align: center;
+}
+
+#vuelta {
+    width: 100%;
+    height: 500px;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 15px 0px;
+}
+
+#vuelta img {
+    width: 100%;
+    height: 100%;
+
+}
+
+.contenedor {
+    width: 350px;
+    height: 350px;
+    position: relative;
+    transition: transform 3s;
+    background-color: green;
+    border: 1px solid yellow;
+}
+
+
+.contenedor-vueltas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-rows: repeat(3, 350px);
+    gap: 50px;
+    /* Espacio entre las cajas */
+    min-height: 800px;
+}
+
+.caja-vueltas {
+    border: 1px solid var(--colorTransparente);
+    padding: 10px;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    position: relative;
+    transition: transform 0.5s;
+    transform-style: flat;
+
+    margin-top: 20px;
+    cursor: pointer;
+    border-radius: var(--borderRadio);
+
+}
+
+.front {
+    width: 100%;
+    height: 100%;
+}
+
+.front img {
+    width: 100%;
+    height: 100%;
+    border-radius: var(--borderRadio);
+
+}
+
+.back {
+    background-color: white;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    transform: rotateY(180deg);
+    padding: 20px;
+    border-radius: var(--borderRadio);
+
+}
+
+.contenido-back {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    flex-direction: column;
+
+}

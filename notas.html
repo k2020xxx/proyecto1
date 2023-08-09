@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+
+    }
+
+    #contenedor {
+        background-color: white;
+        border: 2px solid black;
+        max-width: 1500px;
+        height: 1500px;
+        margin: 10px;
+
+    }
+
+    .hijos {
+        width: 238;
+        max-height: 300px;
+        border: 1px solid black;
+        margin: 5px;
+    }
+
+    #creacion-tarea {
+        width: 100%;
+        height: 150px;
+        position: relative;
+        font-size: 30px;
+    }
+
+    #nuevo-tarea {
+        width: 150px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 30px;
+        padding: 10px;
+        text-shadow: 5px;
+        cursor: pointer;
+        box-shadow: 1px 1px 2px 2px black;
+    }
+
+    #declarar-tarea {
+        width: 500px;
+        position: absolute;
+        top: 0;
+        right: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: green;
+        margin: 30px;
+        padding: 10px;
+
+    }
+
+    #listaTareas {
+        width: 100%;
+        height: 500px;
+        border: 1px solid red;
+
+    }
+</style>
+
+<body>
+    <main id="contenedor">
+
+        <section id="creacion-tarea">
+
+            <div id="nuevo-tarea">
+                <i class="bi bi-plus-circle-fill"></i>&nbsp; New
+
+            </div>
+
+            <div id="declarar-tarea">
+
+            </div>
+        </section>
+
+
+
+        <section id="listaTareas">
+            xssss
+
+        </section>
+
+    </main>
+
+</body>
+<script>
+
+    const CONTENEDOR = document.getElementById("contenedor");
+    const NUEVATAREA = document.getElementById("nuevo-tarea");
+
+    const listaTareas = document.getElementById("listaTareas");
+    const DECLARARTAREA = document.getElementById("declarar-tarea");
+
+
+    NUEVATAREA.addEventListener("click", function () {
+        // console.log("tarea")
+        let registrarTarea = document.createElement("input")
+        let cajaTareas = document.createElement("div")
+
+        let valorInput = registrarTarea.value
+        if (valorInput) {
+            listaTareas.appendChild(cajaTareas)
+            cajaTareas.innerText = valorInput
+
+        }
+        else {
+            alert("No ha ingresado ninguna tarea")
+        }
+        DECLARARTAREA.appendChild(registrarTarea)
+
+
+
+
+    })
+
+</script>
+
+</html>

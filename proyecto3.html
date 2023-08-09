@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        background-color: rgb(23, 41, 56);
+        height: 100vh;
+
+    }
+
+    #contenedor {
+        width: 500px;
+        height: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        border-radius: 50px;
+        border: 2px solid black;
+        background-color: white;
+
+    }
+
+
+    .color {
+        display: flex;
+        color: black;
+        flex-direction: column;
+        text-align: center;
+        font-size: 2rem;
+        margin: 50px;
+    }
+</style>
+
+<body>
+
+    <div id="contenedor">
+        <div class="contenedor-secundario">
+
+
+            <div class="color">
+                <label for="rojo">Rojo(R) </label>
+                <input id="rojo" value="23" type="range" name="rojo" min="0" max="255" step="1">
+                <p id="texto-rojo"></p>
+
+
+            </div>
+
+            <div class="color">
+                <label for="verde"> Verde (G)</label>
+                <input id="verde" type="range" name="verde" min="0" max="255" step="1" value="25">
+                <p id="texto-verde"></p>
+
+
+            </div>
+
+            <div class="color">
+                <label for="azul"> Azul (B)</label>
+                <input id="azul" type="week" name="azul" min="0" max="255" step="1" value="41">
+                <p id="texto-azul"></p>
+
+            </div>
+
+
+        </div>
+    </div>
+
+</body>
+
+<script>
+    let inputRojo = document.getElementById("rojo");
+    let inputVerde = document.getElementById("verde");
+    let inputAzul = document.getElementById("azul");
+
+    let textoRojo = document.getElementById("texto-rojo");
+    let textoVerde = document.getElementById("texto-verde");
+    let textoAzul = document.getElementById("texto-azul");
+
+    let rojo = inputRojo.value;
+    let verde = inputVerde.value;
+    let azul = inputAzul.value;
+    textoRojo.innerText = rojo;
+    textoVerde.innerText = verde;
+    textoAzul.innerText = azul;
+
+    function ColorFondo(rojo, verde, azul) {
+        let rgb = `rgb(${rojo}, ${verde},${azul})`
+        document.body.style.backgroundColor = rgb
+    }
+    inputRojo.addEventListener("change", function (e) {
+        console.log(e.target.value + " ROJO")
+        rojo = e.target.value
+        textoRojo.innerText = rojo
+        ColorFondo(rojo, verde, azul)
+    })
+
+    inputVerde.addEventListener("change", function (e) {
+        console.log(e.target.value + " VERDE")
+        verde = e.target.value
+        textoVerde.innerText = verde
+        ColorFondo(rojo, verde, azul)
+    })
+    inputAzul.addEventListener("change", function (e) {
+        console.log(e.target.value + " AZUL")
+        azul = e.target.value
+        textoAzul.innerText = azul
+        ColorFondo(rojo, verde, azul)
+    })
+
+
+
+</script>
+
+</html>

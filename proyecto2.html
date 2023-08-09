@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        margin: 0;
+    }
+
+    #contenedor {
+
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        text-align: center;
+        width: 500px;
+        height: auto;
+        margin: auto;
+        background-color: #ffff00;
+
+    }
+
+    .imagen-auto {
+        width: 300px;
+        height: 300px;
+    }
+</style>
+
+<body>
+    <div id="contenedor">
+
+    </div>
+
+</body>
+<script>
+    let contenedor = document.getElementById("contenedor")
+    let autos = ["img/auto1.jpg", "img/auto2.jpg", "img/auto3.jpg", "img/auto2.jpg", "img/auto3.jpg", "img/auto1.jpg"]
+
+    // console.log(rrecorrerImagenes(autos))
+
+
+
+    function cajasImagenes() {
+        for (let i = 0; i <= 6; i++) {
+            let caja = document.createElement("div")
+            let img = document.createElement("img")
+            img.src = autos[i]
+            img.className = "imagen-auto"
+            caja.append(img)
+            contenedor.append(caja)
+            img.addEventListener("click", (e) => {
+                console.log("auto" + i)
+            })
+
+
+
+        }
+    }
+    cajasImagenes()
+
+
+
+</script>
+
+</html>
